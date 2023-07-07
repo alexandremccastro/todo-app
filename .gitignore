@@ -1,0 +1,10 @@
+# folders
+logs
+
+# env files
+.env*
+!.env.example
+
+# editor files
+.idea
+.vscode
