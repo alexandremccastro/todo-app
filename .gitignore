@@ -8,3 +8,7 @@ logs
 # editor files
 .idea
 .vscode
+
+
+# plugin files
+.vstags

@@ -1,13 +1,13 @@
 #!/usr/bin/perl
+
 use strict;
 use warnings;
-use Text::Template;
-use CGI;
+use lib '../core';
+use App;
 
-my $cgi = CGI->new();
+# App instance that will
+my $app = App->new();
 
-my $name = $cgi->param('name');
-my $requestMethod = $cgi->request_method();
+$app->handle( $ENV{REQUEST_URI} );
 
-print "Content-type: text/html\r\n\r\n";
-print "<html><body><h1>Hello, $name! $requestMethod</h1></body></html>";
+1;
