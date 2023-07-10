@@ -4,9 +4,12 @@ use strict;
 use warnings;
 use lib '../routes';
 use lib '../core/Router';
+use Dotenv;
 use Session;
 use Route;
 use Web;
+
+Dotenv->load('../.env');
 
 sub new {
     my ($class) = shift;

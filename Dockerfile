@@ -10,8 +10,8 @@ RUN apt update && apt install apache2 -y
 RUN cp ./todo-app.conf /etc/apache2/sites-available/todo-app.conf
 
 # Install Perl required modules
-RUN apt install cpanminus -y && cpan install CGI && cpan install Text::Template \
-    && cpan install CGI::Session && cpan install Data::Dumper
+RUN apt install cpanminus -y && cpan CGI && cpan Text::Template \
+    && cpan CGI::Session && cpan Dotenv
 
 # Enable modules and site
 RUN a2enmod cgid && a2enmod rewrite && a2ensite todo-app
