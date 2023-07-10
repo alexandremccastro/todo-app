@@ -3,7 +3,6 @@ use strict;
 use warnings;
 use lib '../core/Router';
 use lib '../app/Controllers';
-
 use Route;
 use AuthController;
 

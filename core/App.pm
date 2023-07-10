@@ -1,4 +1,3 @@
-#!/usr/lib/perl
 package App;
 
 use strict;
