@@ -40,14 +40,14 @@
             type="password"
           />
 
-          <button class="btn btn-primary mb-2 w-full" type="submit">
+          <button class="btn btn-success mb-2 w-full" type="submit">
             Register
           </button>
         </form>
 
         <p class="text-sm">
           Already has an account?
-          <a href="/login" class="link-primary">Go to Login</a>
+          <a href="/login" class="link-success">Go to Login</a>
         </p>
       </article>
     </section>

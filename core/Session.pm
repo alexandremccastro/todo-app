@@ -3,12 +3,11 @@ package Session;
 
 use strict;
 use warnings;
-use CGI;
 use CGI::Session;
 
 sub new {
     my $class = shift;
-    my $cgi   = CGI->new();
+    my $cgi   = shift;
 
     my $sessionId = $cgi->cookie('SESSION_ID');
 
@@ -23,6 +22,12 @@ sub new {
 
     bless $self, $class;
     return $self;
+}
+
+sub getId {
+    my $self = shift;
+
+    return $self->{session}->id;
 }
 
 sub start {

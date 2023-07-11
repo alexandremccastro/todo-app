@@ -8,6 +8,6 @@ use App;
 # App instance that will
 my $app = App->new();
 
-$app->handle( $ENV{REQUEST_URI} );
+$app->start();
 
 1;

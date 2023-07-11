@@ -33,14 +33,14 @@
             :errors="v$.user.password.$errors"
           />
 
-          <button class="btn btn-primary w-full mb-2" @click="attemptLogin">
+          <button class="btn btn-success w-full mb-2" @click="attemptLogin">
             Login
           </button>
         </form>
 
         <p class="text-sm">
           Need an account?
-          <a href="/register" class="link-primary">Create One</a>
+          <a href="/register" class="link-success">Create One</a>
         </p>
       </article>
     </section>
