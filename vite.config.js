@@ -29,7 +29,7 @@ export default defineConfig({
   resolve: {
     extensions: ['js'],
     alias: {
-      '@': fileURLToPath(new URL('./resources/js', import.meta.url)),
+      '@': fileURLToPath(new URL('./resources/assets', import.meta.url)),
       vue: 'vue/dist/vue.esm-bundler.js',
       relativeTime: 'dayjs/plugin/relativeTime.js',
     },
