@@ -10,7 +10,12 @@ use DB;
 use Render;
 
 sub sayHello {
-    print '<h1>Hello MVC</h1>';
+    Render::view(
+        'home',
+        {
+            name => "Hello world!"
+        }
+    );
 }
 
 sub hailMVC {

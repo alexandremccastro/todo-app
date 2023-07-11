@@ -1,6 +1,9 @@
 # folders
 logs
 
+# dependencies
+node_modules
+
 # env files
 .env*
 !.env.example

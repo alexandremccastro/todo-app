@@ -1,0 +1,31 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "repository": "git@github.com:alexandremccastro/quick-crm.git",
+  "author": "Alexandre Castro <alexandrecotrimcastro@gmail.com>",
+  "license": "MIT",
+  "type": "commonjs",
+  "scripts": {
+    "build": "vite build",
+    "watch": "vite build --watch"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
+    "autoprefixer": "^10.4.14",
+    "daisyui": "^3.0.0",
+    "postcss": "^8.4.24",
+    "prettier": "^3.0.0",
+    "sass": "^1.62.1",
+    "tailwindcss": "^3.3.2",
+    "vite": "^4.3.9",
+    "vue": "^3.3.4"
+  },
+  "dependencies": {
+    "@vuelidate/core": "^2.0.2",
+    "@vuelidate/validators": "^2.0.2",
+    "dayjs": "^1.11.8",
+    "flowbite": "^1.6.5",
+    "flowbite-datepicker": "^1.2.2",
+    "maska": "^2.1.9"
+  }
+}
