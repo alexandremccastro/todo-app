@@ -10,13 +10,13 @@ sub run {
 
     $self->SUPER::execute(
         'CREATE TABLE IF NOT EXISTS users (
-            uuid VARCHAR(36) NOT NULL,
+            id INT(11) UNSIGNED AUTO_INCREMENT NOT NULL,
             name VARCHAR(100) NOT NULL,
             email VARCHAR(100) NOT NULL,
             password VARCHAR(100) NOT NULL,
             createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            updatedAt TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-            PRIMARY KEY (uuid)
+            updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            PRIMARY KEY (id)
         );'
     );
 }

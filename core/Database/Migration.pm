@@ -7,9 +7,9 @@ use DB;
 sub execute {
     my ( $class, $sql ) = @_;
 
-    my $stmt = DB::prepare($sql);
-    $stmt->execute();
-    $stmt->finish();
+    my $sth = DB->getInstance()->prepare($sql);
+    $sth->execute();
+    $sth->finish();
 }
 
 1;

@@ -10,14 +10,14 @@ sub run {
 
     $self->SUPER::execute(
         'CREATE TABLE IF NOT EXISTS lists (
-            uuid VARCHAR(36) NOT NULL,
-            user_uuid VARCHAR(36) NOT NULL,
+            id INT(11) UNSIGNED AUTO_INCREMENT NOT NULL,
+            userId INT(11) UNSIGNED NOT NULL,
             name VARCHAR(100) NOT NULL,
             slug VARCHAR(100) NOT NULL,
             createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            updatedAt TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-            PRIMARY KEY (uuid),
-            FOREIGN KEY (user_uuid) REFERENCES users (uuid) ON DELETE CASCADE
+            updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            PRIMARY KEY (id),
+            FOREIGN KEY (userId) REFERENCES users (id) ON DELETE CASCADE
         );'
     );
 }
