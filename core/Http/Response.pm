@@ -12,7 +12,8 @@ sub new {
     headers => {
       status => 200
     },
-    content => ''
+    content => '',
+    params  => {}
   };
 
   bless $self, $class;
@@ -31,6 +32,17 @@ sub getInstance {
 sub getContent {
   my $self = getInstance();
   return $self->{content};
+}
+
+sub with {
+  my ( $class, %params ) = @_;
+  my $self = getInstance();
+
+  foreach my $key ( keys %params ) {
+    $self->{params}{$key} = $params{$key};
+  }
+
+  return $self;
 }
 
 sub withHeaders {

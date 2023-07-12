@@ -14,12 +14,11 @@ Dotenv->load('../.env');
 
 sub new {
     my ($class) = shift;
-    my $cgi     = CGI->new();
-    my $session = Session->new($cgi);
+    my $cgi = CGI->new();
 
     my $self = {
         cgi     => $cgi,
-        session => $session
+        session => Session->new($cgi)
     };
 
     bless $self, $class;

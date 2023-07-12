@@ -10,14 +10,13 @@ sub new {
     my $cgi   = shift;
 
     my $sessionId = $cgi->cookie('SESSION_ID');
+    my $session =
+      CGI::Session->new( 'driver:file', $sessionId, { Directory => '/tmp' } );
 
     my $self = {
-        cgi     => $cgi,
-        session => CGI::Session->new(
-            'driver:file',
-            !undef $sessionId ? $sessionId : '',
-            { Directory => '/tmp' }
-        )
+        cgi       => $cgi,
+        session   => $session,
+        sessionId => length $sessionId ? $sessionId : $session->id
     };
 
     bless $self, $class;
@@ -27,18 +26,7 @@ sub new {
 sub getId {
     my $self = shift;
 
-    return $self->{session}->id;
-}
-
-sub start {
-    my $self = shift;
-
-    print $self->{cgi}->header(
-        -cookie => $self->{cgi}->cookie(
-            -name  => 'SESSION_ID',
-            -value => $self->{session}->id
-        )
-    );
+    return $self->{sessionId};
 }
 
 sub setParam {

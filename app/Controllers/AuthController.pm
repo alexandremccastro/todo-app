@@ -20,7 +20,30 @@ sub login {
 }
 
 sub attemptLogin {
-    print 'Tentando logar';
+    my ( $cgi, $session ) = @_;
+
+    my $email    = $cgi->param('email');
+    my $password = $cgi->param('password');
+    my $pbkdf2   = Crypt::PBKDF2->new();
+
+    my $sth =
+      DB->getInstance()
+      ->prepare(
+        'SELECT id, name, email, password FROM users WHERE email = ? LIMIT 1');
+
+    $sth->execute($email);
+    my $hashRef = $sth->fetchrow_hashref();
+
+    if ( $pbkdf2->validate( $hashRef->{password}, $password ) == 1 ) {
+        $session->setParam( 'user', \%{$hashRef} );
+
+        return Response->redirect('/home')
+          ->with( success => 'Successfully logged in.' );
+    }
+    else {
+        return Response->redirect('/login')
+          ->with( success => 'Invalid credentials.' );
+    }
 }
 
 sub register {
@@ -28,7 +51,7 @@ sub register {
 }
 
 sub attemptRegister {
-    my ( $cgi, $session ) = @_;
+    my ($cgi) = @_;
 
     my $pbkdf2   = Crypt::PBKDF2->new();
     my $password = $cgi->param('password');
@@ -44,11 +67,11 @@ sub attemptRegister {
     $sth->execute( $name, $email, $hash );
 
     if ( $sth->rows == 1 ) {
-        Response->redirect('/login')
+        return Response->redirect('/login')
           ->with( success => 'Successfully registered.' );
     }
     else {
-        Response->redirect('/register')
+        return Response->redirect('/register')
           ->with( error => 'Error in registration.' );
     }
 }
