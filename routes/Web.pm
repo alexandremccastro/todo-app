@@ -23,4 +23,6 @@ Route::post( '/register', \&AuthController::attemptRegister );
 
 Route::get( '/home', \&ListController::home );
 
+Route::post( '/lists', \&ListController::create );
+
 1;

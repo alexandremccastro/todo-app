@@ -9,11 +9,13 @@ dayjs.extend(timezone)
 import Login from './pages/auth/Login.vue'
 import Register from './pages/auth/Register.vue'
 import Navbar from './components/Layout/Navbar.vue'
+import List from './pages/list/Index.vue'
 
 export const registerComponents = (app) => {
   app.component('Login', Login)
   app.component('Register', Register)
   app.component('Navbar', Navbar)
+  app.component('List', List)
 }
 
 export const registerHelpers = (app) => {

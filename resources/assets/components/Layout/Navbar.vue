@@ -1,24 +1,11 @@
 <template>
-  <div class="flex w-full px-1 h-14 justify-between items-center">
-    <button class="btn">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
-        class="w-6 h-6"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-        />
-      </svg>
-    </button>
+  <div
+    class="flex w-full h-14 px-4 justify-between sticky top-0 bg-white border-b items-center"
+  >
+    <div class="text-2xl font-bold">ToDo</div>
 
-    <div class="dropdown dropdown-bottom dropdown-end">
-      <label tabindex="0" class="btn">
+    <div class="dropdown bg-transparent dropdown-bottom dropdown-end">
+      <label tabindex="0" class="btn bg-transparent">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
